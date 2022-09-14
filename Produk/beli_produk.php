@@ -10,7 +10,7 @@
         <img src="gambar/<?=$dt_buku['foto']?>" class="card-img-top">
     </div>
     <div class="col-md-8">
-        <form action="./masukkeranjang.php?id_produk=<?=$dt_buku['id_produk']?>" method="post">
+        <form action="masukkeranjang.php?id_produk=<?=$dt_buku['id_produk']?>" method="post">
             <table class="table table-hover table-striped">
                 <thead>
                     <tr>
