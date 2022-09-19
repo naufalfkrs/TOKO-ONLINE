@@ -37,6 +37,7 @@ if (mysqli_num_rows($q) > 0) {
     $_SESSION['username'] = $r['username'];
     $_SESSION['password'] = $r['password'];
     $_SESSION['nama'] = $r['nama'];
+    $_SESSION['foto'] = $r['foto'];
     $_SESSION['status_login']=true;
     header('location:home.php');
 }
@@ -45,7 +46,9 @@ else if (mysqli_num_rows($q2) > 0 ) {
     $_SESSION['username'] = $row['username'];
     $_SESSION['password'] = $row['password'];
     $_SESSION['nama_petugas'] = $row['nama_petugas'];
-    $_SESSION['status_login']=true;
+    $_SESSION['level'] = $row['level'];
+    $_SESSION['foto'] = $row['foto'];
+    $_SESSION['status_login_petugas']=true;
     header('location:home_petugas.php');
 }else {
     echo "Login Gagal";

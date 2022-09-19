@@ -12,7 +12,7 @@
     $dt_siswa=mysqli_fetch_array($qry_get_siswa);
     ?>
     <h3>Ubah Produk</h3>
-    <form action="proses_ubah_produk.php" method="post">
+    <form action="proses_ubah_produk.php" method="post" enctype="multipart/form-data">
         <input type="hidden" name="id_produk" value= "<?=$dt_siswa['id_produk']?>">
         Nama Petugas :
         <input type="text" name="nama_produk" value= "<?=$dt_siswa['nama_produk']?>" class="form-control">

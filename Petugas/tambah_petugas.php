@@ -9,7 +9,7 @@
 </head>
 <body>
 <h3>Tambah Petugas</h3>
-    <form action="proses_tambah_petugas.php" method="post">
+    <form action="proses_tambah_petugas.php" method="post" enctype="multipart/form-data">
         Nama Petugas :
         <input type="text" name="nama_petugas" value="" class="form-control">
         Username : 
@@ -17,7 +17,12 @@
         Password : 
         <input type="password" name="password" value="" class="form-control">
         Level : 
-        <input type="text" name="level" value="" class="form-control">
+        <select name="level" class="form-control">
+            <option value="Petugas">Petugas</option>
+            <option value="Admin">Admin</option>
+        </select>
+        Foto : 
+        <input type="file" name="foto" value="" class="form-control">
         <input type="submit" name="simpan" value="Tambah Petugas" class="btn btn-primary">
     </form>
 

@@ -12,7 +12,7 @@
             <tr>
                 <th>NO</th><th>NAMA PELANGGAN</th>
                 <th>ALAMAT</th><th>NO TELP</th>
-                <th>USERNAME</th><th>AKSI</th>
+                <th>USERNAME</th><th>FOTO</th><th>AKSI</th>
             </tr>
         </thead>
         <tbody>
@@ -27,6 +27,7 @@
                 <td><?=$data_siswa['alamat']?></td>
                 <td><?=$data_siswa['telp']?></td>
                 <td><?=$data_siswa['username']?></td>
+                <td><img src="gambar/<?=$data_siswa['foto']?>"class="card-img-top" width="150" height="98" ></td>
                 <td><a href="ubah_pelanggan.php?id_pelanggan=<?=$data_siswa['id_pelanggan']?>" class="btn btn-success">Ubah</a> |  
                     <a href="hapus_pelanggan.php?id_pelanggan=<?=$data_siswa['id_pelanggan']?>" onclick="return confirm('Apakah anda yakin menghapus data ini?')" class="btn btn-danger">Hapus</a>
                 </td>

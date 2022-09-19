@@ -25,6 +25,8 @@
         <input type="text" name="username" value="<?=$dt_siswa['username']?>" class="form-control">
         Password :
         <input type="password" name="password" value="" class="form-control">
+        Foto :
+        <input type="file" name="foto" value="" class="form-control">   
         <input type="submit" name="simpan" value="Ubah Pelanggan" class="btn btn-primary">
     </form>
     <script

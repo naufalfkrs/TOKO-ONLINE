@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,6 +26,7 @@
                 <td><?=$no?></td><td><?=$data_siswa['nama_petugas']?></td>
                 <td><?=$data_siswa['username']?></td>
                 <td><?=$data_siswa['level']?></td>
+                <td><img src="gambar_petugas/<?=$data_siswa['foto']?>"class="card-img-top" width="150" height="98" ></td>
                 <td><a href="ubah_petugas.php?id_petugas=<?=$data_siswa['id_petugas']?>" class="btn btn-success">Ubah</a> |  
                     <a href="hapus_petugas.php?id_petugas=<?=$data_siswa['id_petugas']?>" onclick="return confirm('Apakah anda yakin menghapus data ini?')" class="btn btn-danger">Hapus</a>
                 </td>

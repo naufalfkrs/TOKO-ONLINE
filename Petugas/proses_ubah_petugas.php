@@ -13,19 +13,33 @@ if($_POST){
         echo "<script>alert('level tidak boleh kosong');location.href='ubah_petugas.php';</script>";
     } else {
         include "../toko.php";
-        if(empty($password)){
-            $update=mysqli_query($conn,"update petugas set nama_petugas='".$nama_petugas."',username='".$username."',level='".$level."' where id_petugas = '".$id_petugas."' ") or die(mysqli_error($conn));
+        $ekstensi =  array('png','jpg','JPG','jpeg','gif');
+        $filename = $_FILES['foto']['name'];
+        $ukuran = $_FILES['foto']['size'];
+        $ext = pathinfo($filename, PATHINFO_EXTENSION);
+        if(!in_array($ext,$ekstensi) ) {
+            header("location:ubah_petugas.php?alert=gagal_ekstensi");
+        } else if(empty($password)){
+            if($ukuran < 1044070){
+                $xx = $filename;
+                move_uploaded_file($_FILES['foto']['tmp_name'], 'gambar_petugas/'.$filename);
+                $update=mysqli_query($conn,"update petugas set nama_petugas='".$nama_petugas."',username='".$username."',level='".$level."', foto='".$xx."' where id_petugas = '".$id_petugas."' ") or die(mysqli_error($conn));
             if($update){
-                echo "<script>alert('Sukses update petugas');location.href='tampil_petugas.php';</script>";
+                echo "<script>alert('Sukses update petugas');location.href='tampil_petugas1.php';</script>";
             } else {
                 echo "<script>alert('Gagal update petugas');location.href='ubah_petugas.php?id_petugas=".$id_petugas."';</script>";
             }
+        }
         } else {
-            $update=mysqli_query($conn,"update petugas set nama_petugas='".$nama_petugas."',username='".$username."',level='".$level."' where id_petugas = '".$id_petugas."' ") or die(mysqli_error($conn));
-            if($update){
-                echo "<script>alert('Sukses update petugas');location.href='tampil_petugas.php';</script>";
-            } else {
-                echo "<script>alert('Gagal update petugas');location.href='ubah_petugas.php?id_petugas=".$id_petugas."';</script>";
+            if($ukuran < 1044070){
+                $xx = $filename;
+                move_uploaded_file($_FILES['foto']['tmp_name'], 'gambar_petugas/'.$filename);
+                $update=mysqli_query($conn,"update petugas set nama_petugas='".$nama_petugas."',username='".$username."',password='".md5($password)."',level='".$level."', foto='".$xx."' where id_petugas = '".$id_petugas."' ") or die(mysqli_error($conn));
+                if($update){
+                    echo "<script>alert('Sukses update petugas');location.href='../Login/login.php';</script>";
+                } else {
+                    echo "<script>alert('Gagal update petugas');location.href='ubah_petugas.php?id_petugas=".$id_petugas."';</script>";
+                }
             }
         }
     }
